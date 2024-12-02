@@ -56,12 +56,12 @@
             while (iterator.hasNext()) {
                 Map.Entry<String, ArrayList<Object>> entry = iterator.next();
                 ArrayList<Object> product = entry.getValue();
-
+                
                 // Retrieve product details from cart
                 String productId = (String) product.get(0);
                 String productName = (String) product.get(1); // This is unused but availableh ahah
                 int quantity = (Integer) product.get(3);
-                out.println("here1");
+
                 String price_string = (String) product.get(2);
                 
                 double price = Double.parseDouble(price_string);
@@ -76,7 +76,7 @@
                 // Calculate total amount for the order
                 totalAmount += quantity * price;
             }
-            out.println("here1");
+           
             // Step 3: Update totalAmount in ordersummary table
             String updateOrderSQL = "UPDATE ordersummary SET totalAmount = ? WHERE orderId = ?";
             PreparedStatement updateOrderStmt = con.prepareStatement(updateOrderSQL);
